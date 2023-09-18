@@ -32,7 +32,8 @@ namespace TodoWebService.Services
                 Id = item.Id,
                 Text = item.Text,
                 CreatedAt = item.CreatedTime,
-                IsComleted = item.IsCompleted
+                IsComleted = item.IsCompleted,
+                EndDate = item.EndTime,
             };
         }
 
@@ -47,8 +48,9 @@ namespace TodoWebService.Services
                 Text = request.Text,
                 CreatedTime = now,
                 UpdatedTime = now,
+                EndTime = request.EndDate.Value,
                 IsCompleted = false,
-                UserId = userId
+                UserId = user.Id
             };
             item = _context.TodoItems.Add(item).Entity;
             await _context.SaveChangesAsync();
@@ -83,7 +85,8 @@ namespace TodoWebService.Services
                     Id = todoItem.Id,
                     Text = todoItem.Text,
                     CreatedAt = todoItem.CreatedTime,
-                    IsComleted = todoItem.IsCompleted
+                    IsComleted = todoItem.IsCompleted,
+                    EndDate = todoItem.EndTime
                 } : null;
         }
 
@@ -111,7 +114,8 @@ namespace TodoWebService.Services
                         Id = e.Id,
                         Text = e.Text,
                         CreatedAt = e.CreatedTime,
-                        IsComleted = e.IsCompleted
+                        IsComleted = e.IsCompleted,
+                        EndDate = e.EndTime
                     }),
                     new PaginationMeta(page, pageSize, totalCount)
                 );
