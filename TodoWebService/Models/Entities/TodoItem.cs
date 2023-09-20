@@ -9,7 +9,7 @@
         public DateTimeOffset UpdatedTime { get; set; }
         public DateTimeOffset EndTime { get; set; }
         public string UserId { get; set; } = string.Empty;
-        public bool Alert { get; set; } = false;
+        public bool Alerted { get; set; }
         public virtual AppUser User { get; set; }
 
     }

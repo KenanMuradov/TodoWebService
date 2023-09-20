@@ -231,7 +231,7 @@ namespace TodoWebService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Alert")
+                    b.Property<bool>("Alerted")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset>("CreatedTime")

@@ -12,8 +12,8 @@ using TodoWebService.Data;
 namespace TodoWebService.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    [Migration("20230918173947_mig2")]
-    partial class mig2
+    [Migration("20230920163424_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -234,7 +234,7 @@ namespace TodoWebService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Alert")
+                    b.Property<bool>("Alerted")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset>("CreatedTime")
